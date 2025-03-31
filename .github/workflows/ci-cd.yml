@@ -50,8 +50,8 @@ jobs: # 定义工作流中的作业（一系列步骤）
           username: ${{ secrets.SERVER_USER }} # 服务器的用户名，从 GitHub Secrets 中获取
           password: ${{ secrets.SERVER_KEY }} # 服务器的 SSH 私钥，从 GitHub Secrets 中获取
           source: | # 使用管道符支持多行
-            ./core_api # 替换为你的可执行文件名，指定要传输的文件路径
-            ./core_rpc # 替换为你的可执行文件名，指定要传输的文件路径
+            /home/runner/work/simple-admin-core/simple-admin-core/core_api # 替换为你的可执行文件名，指定要传输的文件路径
+            /home/runner/work/simple-admin-core/simple-admin-core/core_rpc # 替换为你的可执行文件名，指定要传输的文件路径
           target: /data/servers/truck_server/core/ # 替换为服务器上的目标路径
 
       - name: Restart service # 步骤的名称
