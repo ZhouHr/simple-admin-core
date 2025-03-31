@@ -53,4 +53,4 @@ jobs: # 定义工作流中的作业（一系列步骤）
           key: ${{ secrets.SERVER_KEY }} # 服务器的 SSH 私钥，从 GitHub Secrets 中获取
           script: | # 在服务器上执行的脚本
             mv /data/servers/truck_server/core/core_api /data/servers/truck_server/core/bin/api && /data/servers/truck_server/core/service api restart # 替换为你的服务名称，重启服务
-            mv /data/servers/truck_server/core/core_rpc /data/servers/truck_server/core/bin/rpc && /data/servers/truck_server/core/service rpc restart # 替换为你的服务名称，重启服务
+            mv /data/servers/truck_server/core/core_rpc /data/servers/truck_server/core/bin/rpc && /data/servers/truck_server/core/service rpc restart
