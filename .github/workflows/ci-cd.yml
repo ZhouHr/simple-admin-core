@@ -41,6 +41,7 @@ jobs: # 定义工作流中的作业（一系列步骤）
           echo "Server Host: ${{ secrets.SERVER_HOST }}"
           echo "Server User: ${{ secrets.SERVER_USER }}"
           echo "Server pass: ${{ secrets.SERVER_KEY }}"
+          pwd
           ls -l
       - name: Transfer files to server # 步骤的名称
         uses: appleboy/scp-action@v0.1.6 # 使用 appleboy/scp-action@v0.1.6 操作，通过 SCP 传输文件到服务器
