@@ -46,9 +46,28 @@
 		"sms_provider": "短信服务配置",
 		"sms_log": "短信发送日志",
 		"message_sender": "消息发送",
-		"configuration": "参数配置"
+		"configuration": "参数配置",
+		"vehicle": "司机管理",
+		"goods_owner": "货主管理",
+		"order": "称重单管理"
 	},
 	"apiDesc": {
+		"createOrderByManage": "创建称重单",
+		"updateOrderByManage": "更新称重单",
+		"deleteOrderByManage": "删除称重单",
+		"getOrderListByManage": "称重单列表",
+		"getOrderByIdAndManage": "称重单信息",
+		"createGoodsOwnerByManage": "创建货主",
+		"updateGoodsOwnerByManage": "更新货主",
+		"deleteGoodsOwnerByManage": "删除货主",
+		"getGoodsOwnerListByManage": "货主列表",
+		"getGoodsOwnerByIdAndManage": "货主信息",
+		"createVehicleByManage": "创建司机",
+		"updateVehicleByManage": "更新司机",
+		"deleteVehicleByManage": "删除司机",
+		"getVehicleListByManage": "司机列表",
+		"getVehicleByIdAndManage": "司机信息",
+
 		"createConfiguration": "创建参数配置",
 		"updateConfiguration": "更新参数配置",
 		"deleteConfiguration": "删除参数配置",
@@ -241,7 +260,12 @@
 		"cloudFileManagement": "云文件管理",
 		"cloudFileTagManagement": "云文件标签管理",
 		"configurationManagement": "参数管理",
-		"managementCenter": "管理中心"
+		"managementCenter": "管理中心",
+
+		"truckManagement": "称重管理",
+		"orderManagement": "称重单管理",
+		"goodsOwnerManagement": "货主管理",
+		"vehicleManagement": "司机管理"
 	},
 	"login": {
 		"loginSuccessTitle": "登录成功",

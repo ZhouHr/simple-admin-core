@@ -46,9 +46,29 @@
 		"sms_provider": "SMS Provider",
 		"sms_log": "SMS Log",
 		"message_sender": "Send Message",
-		"configuration": "System Configuration"
+		"configuration": "System Configuration",
+
+		"vehicle": "Vehicle",
+		"goods_owner": "Goods Owner",
+		"order": "Weighting Order"
 	},
 	"apiDesc": {
+		"createOrderByManage": "Create a weighting order",
+		"updateOrderByManage": "Update the weighting order",
+		"deleteOrderByManage": "Delete weighting order",
+		"getOrderListByManage": "Get weighting order list",
+		"getOrderByIdAndManage": "Get weighting order by ID",
+		"createGoodsOwnerByManage": "Create a goods owner",
+		"updateGoodsOwnerByManage": "Update the goods owner",
+		"deleteGoodsOwnerByManage": "Delete goods owner",
+		"getGoodsOwnerListByManage": "Get goods owner list",
+		"getGoodsOwnerByIdAndManage": "Get goods owner by ID",
+		"createVehicleByManage": "Create a vehicle",
+		"updateVehicleByManage": "Update the vehicle",
+		"deleteVehicleByManage": "Delete vehicle",
+		"getVehicleListByManage": "Get vehicle list",
+		"getVehicleByIdAndManage": "Get vehicle by ID",
+
 		"createConfiguration": "Create a configuration",
 		"updateConfiguration": "Update the configuration",
 		"deleteConfiguration": "Delete configurations",
@@ -236,7 +256,12 @@
 		"cloudFileManagement": "Cloud File",
 		"cloudFileTagManagement": "Cloud File's Tag",
 		"configurationManagement": "System Config",
-		"managementCenter": "Admin Center"
+		"managementCenter": "Admin Center",
+
+		"truckManagement": "Truck management",
+		"orderManagement": "Weighting order management",
+		"goodsOwnerManagement": "Goods owner management",
+		"vehicleManagement": "Vehicle management"
 	},
 	"login": {
 		"loginSuccessTitle": "Login successful",
