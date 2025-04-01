@@ -63,6 +63,6 @@ jobs: # 定义工作流中的作业（一系列步骤）
           script: | # 在服务器上执行的脚本
             cd /data/servers/truck_server/core/
             tar -zxvf core.tar.gz
-            mv ./core_api ./bin/api && ./service api restart # 替换为你的服务名称，重启服务
-            mv ./core_rpc ./bin/rpc && ./service rpc restart
+            mv -f ./core_api ./bin/api && ./service api restart # 替换为你的服务名称，重启服务
+            mv -f ./core_rpc ./bin/rpc && ./service rpc restart
             rm -rf ./core.tar.gz
