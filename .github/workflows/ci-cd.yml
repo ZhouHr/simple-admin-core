@@ -29,22 +29,24 @@ jobs: # 定义工作流中的作业（一系列步骤）
       - name: Build with Make # 步骤的名称
         run: make build-linux  # 运行 "make" 命令，执行 Makefile 文件中的构建规则
 
-#  deploy: # 定义一个名为 "deploy" 的作业，用于部署
-#    name: Deploy # 作业的名称
-#    needs: build # 指定部署作业依赖于构建作业，即构建作业成功后才会执行部署作业
-#    runs-on: ubuntu-latest # 指定运行作业的操作系统
-#    environment: own
-#
-#    steps: # 定义作业中的步骤
-      - name: Debug SSH
+      - name: Archive build artifact
         run: |
-          echo "Server Host: ${{ secrets.SERVER_HOST }}"
-          echo "Server User: ${{ secrets.SERVER_USER }}"
-          echo "Server pass: ${{ secrets.SERVER_KEY }}"
           tar -zcvf  core.tar.gz ./core_api ./core_rpc
           pwd
           ls -l
-          
+
+  deploy: # 定义一个名为 "deploy" 的作业，用于部署
+    name: Deploy # 作业的名称
+    needs: build # 指定部署作业依赖于构建作业，即构建作业成功后才会执行部署作业
+    runs-on: ubuntu-latest # 指定运行作业的操作系统
+    environment: own
+
+    steps: # 定义作业中的步骤
+      - name: Debug INFO
+        run: |
+          pwd
+          ls -l
+
       - name: Transfer files to server # 步骤的名称
         uses: appleboy/scp-action@v0.1.6 # 使用 appleboy/scp-action@v0.1.6 操作，通过 SCP 传输文件到服务器
         with: # 配置操作的参数
@@ -62,6 +64,8 @@ jobs: # 定义工作流中的作业（一系列步骤）
           password: ${{ secrets.SERVER_KEY }} # 服务器的 SSH 私钥，从 GitHub Secrets 中获取
           script: | # 在服务器上执行的脚本            
             ls -l /data/servers/truck_server/core/
-            tar -zxvf core.tar.gz -C /data/servers/truck_server/core/
+            tar -zxvf /data/servers/truck_server/core/core.tar.gz -C /data/servers/truck_server/core/
             mv /data/servers/truck_server/core/core_api /data/servers/truck_server/core/bin/api && /data/servers/truck_server/core/service api restart # 替换为你的服务名称，重启服务
             mv /data/servers/truck_server/core/core_rpc /data/servers/truck_server/core/bin/rpc && /data/servers/truck_server/core/service rpc restart
+            rm -rf /data/servers/truck_server/core/core.tar.gz
+            ls -l /data/servers/truck_server/core/
