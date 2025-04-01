@@ -62,10 +62,11 @@ jobs: # 定义工作流中的作业（一系列步骤）
           host: ${{ secrets.SERVER_HOST }} # 服务器的 IP 地址或域名，从 GitHub Secrets 中获取
           username: ${{ secrets.SERVER_USER }} # 服务器的用户名，从 GitHub Secrets 中获取
           password: ${{ secrets.SERVER_KEY }} # 服务器的 SSH 私钥，从 GitHub Secrets 中获取
-          script: | # 在服务器上执行的脚本            
-            ls -l /data/servers/truck_server/core/
-            tar -zxvf /data/servers/truck_server/core/core.tar.gz -C /data/servers/truck_server/core/
-            mv /data/servers/truck_server/core/core_api /data/servers/truck_server/core/bin/api && /data/servers/truck_server/core/service api restart # 替换为你的服务名称，重启服务
-            mv /data/servers/truck_server/core/core_rpc /data/servers/truck_server/core/bin/rpc && /data/servers/truck_server/core/service rpc restart
-            rm -rf /data/servers/truck_server/core/core.tar.gz
-            ls -l /data/servers/truck_server/core/
+          script: | # 在服务器上执行的脚本
+            cd /data/servers/truck_server/core/
+            ls -l ./
+            tar -zxvf core.tar.gz
+            mv ./core_api ./bin/api && ./service api restart # 替换为你的服务名称，重启服务
+            mv ./core_rpc ./bin/rpc && ./service rpc restart
+            rm -rf ./core.tar.gz
+            ls -l ./
